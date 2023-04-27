@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="IIntegWebServiceservice" targetNamespace="http://tempuri.org/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:ns1="urn:UIntegTypes">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:UIntegTypes">
+            <complexType name="TStockArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <sequence/>
+                        <attribute ref="soapenc:arrayType" n1:arrayType="ns1:TStockType[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="TStockType">
+                <sequence>
+                    <element name="ItemCode" type="xs:string"/>
+                    <element name="Description" type="xs:string"/>
+                    <element name="FullDescription" type="xs:string"/>
+                    <element name="Category1" type="xs:string"/>
+                    <element name="Category2" type="xs:string"/>
+                    <element name="Category3" type="xs:string"/>
+                    <element name="Category4" type="xs:string"/>
+                    <element name="Userfield1" type="xs:string"/>
+                    <element name="Userfield2" type="xs:string"/>
+                    <element name="Brand" type="xs:string"/>
+                    <element name="StoreID" type="xs:string"/>
+                    <element name="ColourCode" type="xs:string"/>
+                    <element name="ColourDescription" type="xs:string"/>
+                    <element name="SizeCode" type="xs:string"/>
+                    <element name="SizeDescription" type="xs:string"/>
+                    <element name="QtyAvailable" type="xs:double"/>
+                    <element name="ExclSellPrice" type="xs:double"/>
+                    <element name="InclSellPrice" type="xs:double"/>
+                    <element name="ExclPromoPrice" type="xs:double"/>
+                    <element name="InclPromoPrice" type="xs:double"/>
+                    <element name="AliasCode" type="xs:string"/>
+                    <element name="Image" type="xs:string"/>
+                    <element name="Note" type="xs:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TStockAvailableArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <sequence/>
+                        <attribute ref="soapenc:arrayType" n1:arrayType="ns1:TStockAvailableType[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="TStockAvailableType">
+                <sequence>
+                    <element name="ItemCode" type="xs:string"/>
+                    <element name="ColourCode" type="xs:string"/>
+                    <element name="ColourDescription" type="xs:string"/>
+                    <element name="SizeCode" type="xs:string"/>
+                    <element name="SizeDescription" type="xs:string"/>
+                    <element name="StoreID" type="xs:string"/>
+                    <element name="QtyAvailable" type="xs:double"/>
+                    <element name="ExclSellPrice" type="xs:double"/>
+                    <element name="InclSellPrice" type="xs:double"/>
+                    <element name="ExclPromoPrice" type="xs:double"/>
+                    <element name="InclPromoPrice" type="xs:double"/>
+                </sequence>
+            </complexType>
+            <complexType name="TCustomer">
+                <sequence>
+                    <element name="Accountcode" type="xs:string"/>
+                    <element name="Title" type="xs:string"/>
+                    <element name="Initials" type="xs:string"/>
+                    <element name="Surname" type="xs:string"/>
+                    <element name="ContactName" type="xs:string"/>
+                    <element name="IDNumber" type="xs:string"/>
+                    <element name="DateOfBirth" type="xs:string"/>
+                    <element name="ResidentialAddressLine1" type="xs:string"/>
+                    <element name="ResidentialAddressLine2" type="xs:string"/>
+                    <element name="ResidentialSuburb" type="xs:string"/>
+                    <element name="ResidentialTown" type="xs:string"/>
+                    <element name="ResidentialPostalCode" type="xs:string"/>
+                    <element name="PostalAddressLine1" type="xs:string"/>
+                    <element name="PostalAddressLine2" type="xs:string"/>
+                    <element name="PostalSuburb" type="xs:string"/>
+                    <element name="PostalTown" type="xs:string"/>
+                    <element name="PostalCode" type="xs:string"/>
+                    <element name="MobileNo" type="xs:string"/>
+                    <element name="EmailAddress" type="xs:string"/>
+                    <element name="UserField1" type="xs:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TCustomerResult">
+                <sequence>
+                    <element name="Accountcode" type="xs:string"/>
+                    <element name="Resultcode" type="xs:int"/>
+                    <element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TStockSaleArray">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <sequence/>
+                        <attribute ref="soapenc:arrayType" n1:arrayType="ns1:TStockSaleType[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+            <complexType name="TStockSaleType">
+                <sequence>
+                    <element name="ItemCode" type="xs:string"/>
+                    <element name="ColourCode" type="xs:string"/>
+                    <element name="SizeCode" type="xs:string"/>
+                    <element name="Qty" type="xs:double"/>
+                    <element name="InclSellPrice" type="xs:double"/>
+                </sequence>
+            </complexType>
+            <complexType name="TInvoiceResult">
+                <sequence>
+                    <element name="InvoiceNo" type="xs:string"/>
+                    <element name="Accountcode" type="xs:string"/>
+                    <element name="Resultcode" type="xs:int"/>
+                    <element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TOrderResult">
+                <sequence>
+                    <element name="OrderNo" type="xs:string"/>
+                    <element name="Accountcode" type="xs:string"/>
+                    <element name="Resultcode" type="xs:int"/>
+                    <element name="ResultMessege" type="xs:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="TQueryResult">
+                <complexContent>
+                    <restriction base="soapenc:Array">
+                        <sequence/>
+                        <attribute ref="soapenc:arrayType" n1:arrayType="xs:string[]" xmlns:n1="http://schemas.xmlsoap.org/wsdl/"/>
+                    </restriction>
+                </complexContent>
+            </complexType>
+        </schema>
+    </types>
+    <message name="Status0Request"/>
+    <message name="Status0Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="StockList1Request">
+        <part name="NonZeroOnly" type="xs:int"/>
+    </message>
+    <message name="StockList1Response">
+        <part name="return" type="ns1:TStockArray"/>
+    </message>
+    <message name="StockListColourSize2Request">
+        <part name="NonZeroOnly" type="xs:int"/>
+    </message>
+    <message name="StockListColourSize2Response">
+        <part name="return" type="ns1:TStockArray"/>
+    </message>
+    <message name="StockAvailable3Request">
+        <part name="ItemCode" type="xs:string"/>
+        <part name="ColourCode" type="xs:string"/>
+        <part name="SizeCode" type="xs:string"/>
+    </message>
+    <message name="StockAvailable3Response">
+        <part name="return" type="ns1:TStockAvailableArray"/>
+    </message>
+    <message name="GetCustomer4Request">
+        <part name="accountNo" type="xs:string"/>
+        <part name="mobileNo" type="xs:string"/>
+    </message>
+    <message name="GetCustomer4Response">
+        <part name="return" type="ns1:TCustomer"/>
+    </message>
+    <message name="AddCustomer5Request">
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+    </message>
+    <message name="AddCustomer5Response">
+        <part name="return" type="ns1:TCustomerResult"/>
+    </message>
+    <message name="AddSale6Request">
+        <part name="AutoCreateCustomer" type="xs:boolean"/>
+        <part name="OrderNumber" type="xs:string"/>
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+        <part name="Items" type="ns1:TStockSaleArray"/>
+    </message>
+    <message name="AddSale6Response">
+        <part name="return" type="ns1:TInvoiceResult"/>
+    </message>
+    <message name="AddOrder7Request">
+        <part name="AutoCreateCustomer" type="xs:boolean"/>
+        <part name="OrderNumber" type="xs:string"/>
+        <part name="CustomerRec" type="ns1:TCustomer"/>
+        <part name="Items" type="ns1:TStockSaleArray"/>
+    </message>
+    <message name="AddOrder7Response">
+        <part name="return" type="ns1:TOrderResult"/>
+    </message>
+    <message name="CustomQuery8Request">
+        <part name="Query" type="xs:string"/>
+    </message>
+    <message name="CustomQuery8Response">
+        <part name="return" type="ns1:TQueryResult"/>
+    </message>
+    <message name="GetImage9Request">
+        <part name="ItemCode" type="xs:string"/>
+    </message>
+    <message name="GetImage9Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <message name="GetNotes10Request">
+        <part name="ItemCode" type="xs:string"/>
+    </message>
+    <message name="GetNotes10Response">
+        <part name="return" type="xs:string"/>
+    </message>
+    <portType name="IIntegWebService">
+        <operation name="Status">
+            <input message="tns:Status0Request"/>
+            <output message="tns:Status0Response"/>
+        </operation>
+        <operation name="StockList">
+            <input message="tns:StockList1Request"/>
+            <output message="tns:StockList1Response"/>
+        </operation>
+        <operation name="StockListColourSize">
+            <input message="tns:StockListColourSize2Request"/>
+            <output message="tns:StockListColourSize2Response"/>
+        </operation>
+        <operation name="StockAvailable">
+            <input message="tns:StockAvailable3Request"/>
+            <output message="tns:StockAvailable3Response"/>
+        </operation>
+        <operation name="GetCustomer">
+            <input message="tns:GetCustomer4Request"/>
+            <output message="tns:GetCustomer4Response"/>
+        </operation>
+        <operation name="AddCustomer">
+            <input message="tns:AddCustomer5Request"/>
+            <output message="tns:AddCustomer5Response"/>
+        </operation>
+        <operation name="AddSale">
+            <input message="tns:AddSale6Request"/>
+            <output message="tns:AddSale6Response"/>
+        </operation>
+        <operation name="AddOrder">
+            <input message="tns:AddOrder7Request"/>
+            <output message="tns:AddOrder7Response"/>
+        </operation>
+        <operation name="CustomQuery">
+            <input message="tns:CustomQuery8Request"/>
+            <output message="tns:CustomQuery8Response"/>
+        </operation>
+        <operation name="GetImage">
+            <input message="tns:GetImage9Request"/>
+            <output message="tns:GetImage9Response"/>
+        </operation>
+        <operation name="GetNotes">
+            <input message="tns:GetNotes10Request"/>
+            <output message="tns:GetNotes10Response"/>
+        </operation>
+    </portType>
+    <binding name="IIntegWebServicebinding" type="tns:IIntegWebService">
+        <binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="Status">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#Status" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockList">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockList" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockListColourSize">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockListColourSize" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="StockAvailable">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#StockAvailable" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetCustomer">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetCustomer" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddCustomer">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddCustomer" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddSale">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddSale" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="AddOrder">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#AddOrder" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="CustomQuery">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#CustomQuery" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetImage">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetImage" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+        <operation name="GetNotes">
+            <operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="urn:fIntegCustCheckIntf-IIntegWebService#GetNotes" style="rpc"/>
+            <input>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </input>
+            <output>
+                <body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:fIntegCustCheckIntf-IIntegWebService"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="IIntegWebServiceservice">
+        <port name="IIntegWebServicePort" binding="tns:IIntegWebServicebinding">
+            <address xmlns="http://schemas.xmlsoap.org/wsdl/soap/" location="http://169.1.11.135:8090/soap/IIntegWebService"/>
+        </port>
+    </service>
+</definitions>
